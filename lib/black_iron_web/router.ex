@@ -182,6 +182,8 @@ defmodule BlackIronWeb.Router do
   scope "/", BlackIronWeb do
     pipe_through [:browser, :site]
 
+    post "/theme", ThemeController, :update
+
     get "/users/log_out", UserSessionController, :delete
     delete "/users/log_out", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new

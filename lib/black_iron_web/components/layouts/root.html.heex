@@ -62,7 +62,12 @@
       <%= @inner_content %>
     </main>
     <footer class="site-footer">
-      <bi-theme-picker />
+      <.simple_form :let={f} for={@conn.params} action={~p"/theme"}>
+        <input type="hidden" name="redirect_to" value={@conn.request_path} />
+        <.button name="theme" value="light">Light</.button>
+        <.button name="theme" value="dark">Dark</.button>
+        <.button name="theme" value="system">System</.button>
+      </.simple_form>
     </footer>
   </body>
 </html>
